@@ -4,7 +4,7 @@ from Dataloader.eagle import EagleDataset
 import random
 import numpy as np
 from torch.utils.data import DataLoader
-from Models.MeshTransformer import MeshTransformer
+from Models.GraphViT import GraphViT
 import argparse
 from tqdm import tqdm
 import os
@@ -12,7 +12,7 @@ import os
 parser = argparse.ArgumentParser()
 parser.add_argument('--epoch', default=1000, type=int, help="Number of epochs, set to 0 to evaluate")
 parser.add_argument('--lr', default=1e-4, type=float, help="Learning rate")
-parser.add_argument('--dataset_path', default="", type=str,
+parser.add_argument('--dataset_path', default="/Volumes/Elements/Fluent/Eagle_dataset", type=str,
                     help="Dataset path, caution, the cluster location is induced from this path, make sure this is Ok")
 parser.add_argument('--horizon_val', default=25, type=int, help="Number of timestep to validate on")
 parser.add_argument('--horizon_train', default=6, type=int, help="Number of timestep to train on")
@@ -36,7 +36,7 @@ def evaluate():
 
     dataloader = DataLoader(dataset, batch_size=1, shuffle=False, num_workers=4, pin_memory=True,
                             collate_fn=collate)
-    model = MeshTransformer(state_size=4, w_size=args.w_size).to(device)
+    model = GraphViT(state_size=4, w_size=args.w_size).to(device)
 
     model.load_state_dict(
         torch.load(f"../trained_models/graphvit/{args.name}.nn", map_location=device))
@@ -206,7 +206,7 @@ def main():
     valid_dataloader = DataLoader(valid_dataset, batch_size=BATCHSIZE, shuffle=False, num_workers=4,
                                   pin_memory=True, collate_fn=collate)
 
-    model = MeshTransformer(state_size=4, w_size=args.w_size).to(device)
+    model = GraphViT(state_size=4, w_size=args.w_size).to(device)
 
     optim = torch.optim.Adam(model.parameters(), lr=args.lr)
     model_parameters = filter(lambda p: p.requires_grad, model.parameters())

@@ -9,9 +9,9 @@ NODE_WALL = 6
 NODE_DISABLE = 2
 
 
-class MeshTransformer(nn.Module):
+class GraphViT(nn.Module):
     def __init__(self, state_size, w_size=512, n_attention=4, nb_gn=4, n_heads=4):
-        super(MeshTransformer, self).__init__()
+        super(GraphViT, self).__init__()
         pos_start = -3
         pos_length = 8
         self.encoder = Encoder(nb_gn, state_size, pos_length)

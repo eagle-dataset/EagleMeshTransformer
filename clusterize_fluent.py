@@ -15,9 +15,9 @@ args = parser.parse_args()
 PATH = ""
 
 
-class EagleDataset:
+class FluentDataset:
     def __init__(self):
-        super(EagleDataset, self).__init__()
+        super(FluentDataset, self).__init__()
         self.fn = PATH
         assert os.path.exists(self.fn), "Path does not exist"
 
@@ -229,7 +229,7 @@ def main():
     random.seed(0)
     np.random.seed(0)
 
-    dataloader = EagleDataset()
+    dataloader = FluentDataset()
     for i in range(len(dataloader)):
         print(f"Processing {i} ({args.max_cluster_size}):")
         path = os.path.join(dataloader.dataloc[i], f"constrained_kmeans_{args.max_cluster_size}.npy")
