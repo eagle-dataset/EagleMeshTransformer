@@ -33,7 +33,7 @@ def evaluate():
 
     dataloader = DataLoader(dataset, batch_size=1, shuffle=False, num_workers=4, pin_memory=True)
     model = DilResNet(noise_std=args.noise_std,
-                      channels=4 if args.dataset == "fluent" else 3,
+                      channels=4,
                       N_block=args.n_block).to(device)
     model.load_state_dict(torch.load(f"../trained_models/DRN/{args.name}.nn", map_location=device))
 
