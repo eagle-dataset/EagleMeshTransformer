@@ -10,7 +10,7 @@ Estimating fluid dynamics is classically done through the simulation and integra
 
 
 # Dataset
-You can download the dataset on this <a href="https://www.google.com"> link (Coming Soon)</a>. Simulations data are stored in a single numpy archive file (.npz), containing nodes 2D positions, types, velocity and pressure. The edges are stored in another file (triangles.npy) as triplet of points.
+You can download the dataset on this <a href="https://datasets.liris.cnrs.fr/eagle-version1"> link</a>. Simulations data are stored in a single numpy archive file (.npz), containing nodes 2D positions, types, velocity and pressure. The edges are stored in another file (triangles.npy) as triplet of points.
 
  # Training
  The mesh-transformer module can be trained using the corresponding script ```train_meshtransformer.py```. Below is a description of the relevant parameters :
