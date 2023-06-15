@@ -19,7 +19,7 @@ ac04d3efb539a80d8538fb8214228652b482ab149fc7cc9ecf0b6d119e3b1be7  step.tar.gz
 59a2ae96ca5ade7d3772e58b302c4132e1ee003ac239b7e38973ceb480a979e6  triangular.tar.gz
 ```
  # Training
- The mesh-transformer module can be trained using the corresponding script ```train_meshtransformer.py```. Below is a description of the relevant parameters :
+ The mesh-transformer module can be trained using the corresponding script ```train_graphvit.py```. Below is a description of the relevant parameters :
  
 ```
      --epoch          : Number of epoch for training. Evaluate the trained model if set to 0
