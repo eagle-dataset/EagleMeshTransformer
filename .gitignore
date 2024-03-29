@@ -1,0 +1,7 @@
+# Gitignore for Python
+
+#JetBrains stuff
+.idea
+
+# pycache
+__pycache__/
