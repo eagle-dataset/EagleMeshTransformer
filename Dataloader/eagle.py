@@ -36,10 +36,14 @@ class EagleDataset(Dataset):
 
         self.apply_onehot = apply_onehot
         self.dataloc = []
-
-        with open(f"Splits/{mode}.txt", "r") as f:
-            for line in f.readlines():
-                self.dataloc.append(os.path.join(self.fn, line.strip()))
+        try:
+            with open(f"Splits/{mode}.txt", "r") as f:
+                for line in f.readlines():
+                    self.dataloc.append(os.path.join(self.fn, line.strip()))
+        except FileNotFoundError:
+            with open(f"../Splits/{mode}.txt", "r") as f:
+                for line in f.readlines():
+                    self.dataloc.append(os.path.join(self.fn, line.strip()))
 
         self.with_cells = with_cells
         self.with_cluster = with_cluster

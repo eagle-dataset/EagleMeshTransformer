@@ -2,10 +2,15 @@
  
 This repository contains the code associated to the paper <a href="https://openreview.net/forum?id=mfIX4QpsARJ">EAGLE: Large-scale Learning of Turbulent Fluid Dynamics with Mesh Transformers</a>
 
-Link: <a href="https://eagle-dataset.github.io/"> Project page </a>
+
+[![report](https://img.shields.io/badge/Project-Page-red)](https://eagle-dataset.github.io/)
+[![report](https://img.shields.io/badge/ArXiv-Paper-blue)](https://arxiv.org/abs/2302.10803)
+[![report](https://img.shields.io/badge/ArXiv-link-green)](https://datasets.liris.cnrs.fr/eagle-version1)
+
 
 # Abstract
 Estimating fluid dynamics is classically done through the simulation and integration of numerical models solving the Navier-Stokes equations, which is computationally complex and time-consuming even on high-end hardware. This is a notoriously hard problem to solve, which has recently been addressed with machine learning, in particular graph neural networks (GNN) and variants trained and evaluated on datasets of static objects in static scenes with fixed geometry. We attempt to go beyond existing work in complexity and introduce a new model, method and benchmark. We propose EAGLE, a large-scale dataset of ∼1.1 million 2D meshes resulting from simulations of unsteady fluid dynamics caused by a moving flow source interacting with nonlinear scene structure, comprised of 600 different scenes of three different types. To perform future forecasting of pressure and velocity on the challenging EAGLE dataset, we introduce a new mesh transformer. It leverages node clustering, graph pooling and global attention to learn long-range dependencies between spatially distant data points without needing a large number of iterations, as existing GNN methods do. We show that our transformer outperforms state-of-the-art performance on, both, existing synthetic and real datasets and on EAGLE. Finally, we highlight that our approach learns to attend to airflow, integrating complex information in a single iteration.
+
 
 
 
@@ -39,6 +44,13 @@ Note that the script using the dataloaders in ```Dataloaders```. You will have t
 
 Clustering script is configured with the geometry type "Cre, Tri, Spl" and the direction of flight (1 or 2). This allows to run the clustering in parallel easily.
 
+# Generate visualizations
+If you want to reproduce similar videos as in the project page, we release our script for generating visualizations. The script is located in the folder ```misc```. You can run the script with the following command:
+
+``` python3 misc/export_video.py ```
+
+It will generate videos of the Eagle dataset.
+
 # Citation
 ```    @inproceedings{janny2023eagle,
         title = "EAGLE: Large-scale Learning of Turbulent Fluid Dynamics with Mesh Transformers",
@@ -48,3 +60,5 @@ Clustering script is configured with the geometry type "Cre, Tri, Spl" and the d
         booktitle = "International Conference on Learning Representations (ICLR)",
         year = "2023"}
 ```
+
+**Maintenance**: I will try to maintain this repository as much as possible, but I cannot guarantee that I will be able to answer rapidly to all the questions.
